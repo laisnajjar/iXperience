@@ -1,0 +1,187 @@
+body {
+    background-color: skyblue;
+}
+header {
+    margin-bottom: 60px;
+}
+.h1{
+    margin: 10px;
+    margin-left: 25%;
+    color: aliceblue;
+    font: 70px bold solid sans-serif;
+    text-align: center;
+    border: 5px solid tomato;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+p {
+    color: aliceblue;
+    width: 50%;
+    font-size: 20px;
+}
+.box {
+    margin: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 50%;
+    margin: 10px;
+    height: auto;
+    padding: 3%;
+    background-color: tomato;
+    box-sizing: border-box;
+    animation-name: change-color;
+    animation-duration: 14s;
+    animation-iteration-count: infinite;
+}
+
+figure.hero {
+    float: right;
+    width: 35%;
+    height: 100%;
+    overflow: hidden;
+    padding: 10px;
+    margin: 0px;
+}
+blockquote {
+    width: 50%;
+    text-align: center;
+    margin: 10px;
+    color: black;
+    font-size: 1.2em;
+    line-height: 2.4em;
+    background-color: rgba(90,90,90,.5);
+}
+.git{
+    margin-left: 10px;
+}
+.quote {
+    margin-top: 20px;
+    margin-left: 25%;
+}
+footer {
+    text-align: center;
+    font: 20px bold solid sans-serif;
+    position: relative;
+    bottom: -1;
+    width: 100%;
+    height: 25px;
+    background-color: lightpink;
+}
+.inline {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    font: 30px bold solid sans-serif;
+}
+.colorr {
+    float: right;
+    position: relative;
+    top: -200px;
+    left: -14%;
+    width: auto; 
+    border: 5px solid white;
+}
+.field{
+    display: flex;
+    align-items: center;
+    border: 5px solid white;
+    box-sizing: border-box; 
+    display: inline-block;
+    width: auto;
+    padding: 5px;
+}
+.radio{
+    display: flex;
+    justify-content: space-around;   
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+button {
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: grey;
+    font-weight: bold;
+    display: inline-block;
+    width: auto;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+button:hover {
+    color: black;
+    transform: scale(0.8);
+}
+
+.comments {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+.message {
+    margin-top: 30px;
+    animation-name: side;
+    animation-duration: 14s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes side {
+    from {
+        transform: translate(0px);
+    }
+
+    to {
+        transform: translate(2000px);
+    }
+}
+
+@keyframes change-color {
+    from {background-color: red;}
+  to {background-color: blue;}
+}
+
+.boot-card {
+    background-color: lightgray;
+}
+/* 
+.move-box {
+    text-align: center;
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    animation-name: move;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  @keyframes move {
+    0% {
+        transform: translate(0px, 0px);
+        background-color: aquamarine;
+    }
+
+    40% {
+        transform: translate(0px, 200px);
+        background-color: lightseagreen;
+    }
+
+    50% {
+        transform: translate(200px, 200px);
+        background-color: aquamarine;
+    }
+
+    60% {
+        transform: translate(200px, 0px);
+        background-color: lightsalmon;
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+        background-color: aquamarine;
+    } 
+  }
+*/

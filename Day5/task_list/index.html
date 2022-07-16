@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
+    crossorigin="anonymous">
+</head>
+
+<body>
+    <div class = "container mt-5">
+        <div style = "text-align: center;">
+            <h1>Task List</h1>
+            <h4 style = "margin-top: 20px; margin-bottom: 20px;">Our simple task list</h4>
+        </div>
+        <div class="input-group">
+            <input id = "task-input" type="text" class="form-control" placeholder = "Task" aria-label="Dollar amount (with dot and two decimal places)">
+            <button id = "button-input" type = "button" class="input-group-text">+</button>
+        </div>
+
+        <table class=" container mt-5">
+            <thead>
+              <tr>
+                <th scope="col">Task</th>
+                <th scope="col">Completed</th>
+                <th scope="col" style = "text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id = "table-body">
+            </tbody>
+        </table>
+    </div> 
+    
+
+    <script src="main.js"></script>
+</body>
+
+</html>
