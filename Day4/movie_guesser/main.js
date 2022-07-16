@@ -1,3 +1,4 @@
+console.log('he');
 const movies = [
     {title: 'Harry Potter', explanation: 'This movie is about a dude with a stick...', hint: 'It\'s Magic'},
     {title: 'Just Go With It', explanation: 'This movie is about people who go on holiday...', hint: 'Adam, Drew and Jennifer'},
@@ -14,6 +15,7 @@ const movies = [
    
    const cardBody = document.getElementById('card-body');
    const movieNum = Math.floor(Math.random() * 10);
+ 
    const movieInput = document.getElementById('movie-input');
    const movie = movies[movieNum].explanation;
    movieInput.innerHTML = movie; 
