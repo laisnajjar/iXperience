@@ -16,6 +16,7 @@ export default function App() {
         <div>
           <TaskTable></TaskTable>
           <TaskInput></TaskInput>
+          
         </div>
       </div>
     </div>
