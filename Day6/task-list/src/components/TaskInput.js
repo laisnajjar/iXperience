@@ -1,37 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Task } from '../models/task';
 
-export default function TaskInput() {
+export default function TaskInput(props) {
+  const [taskName, setTaskName] = useState('')
+
+  function onFormSubmitted(event) {
+    event.preventDefault();
+
+    //create new task
+    const task = new Task(
+      (new Date()).getTime(),
+      taskName,
+      false,
+    );
+
+    props.onTaskCreated(task);
+
+    setTaskName(''); //function to change taskName
+  }
   return (
     <div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+      {/* use form to be able to use 'enter' to submit */}
+      <form onSubmit={onFormSubmitted}>
+        <div className="input-group mb-3 mt-4">
+          <input
+            value={taskName}
+            onChange={(event) => setTaskName(event.target.value)}
+            type="text"
+            class="form-control"
+            placeholder="Enter task here"
+          />
+          <button
+            className="btn btn-outline-secondary"
+            type="submit"
+          >
+            +
+          </button>
+        </div>
+      </form>
     </div>
   )
 }
