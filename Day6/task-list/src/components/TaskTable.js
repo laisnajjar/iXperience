@@ -1,16 +1,15 @@
 import React from 'react'
 
 export default function TaskTable(props) {
- 
   function toggleTaskComplete(task) {
-    task.complete = !task.complete;
-    props.onTaskUpdated(task);
+    task.complete = !task.complete
+    props.onTaskUpdated(task)
   }
 
-  function onTaskRemove(task){
-    props.onTaskRemove(task);
+  function onTaskRemove(task) {
+    props.onTaskRemove(task)
   }
-  
+
   return (
     <div>
       <table class="table">
@@ -25,13 +24,28 @@ export default function TaskTable(props) {
           {props.tasks.map((task) => (
             <tr key={task.id}>
               <td>{task.name}</td>
-              <td>{task.complete ? 'complete' : 'not complete'}</td>
               <td>
-                <button onClick={(e) => toggleTaskComplete(task)} className="btn btn-primary btn-sm ms-2">
-                  Toggle Complete
-                </button>
-                <button onClick= {(e) => onTaskRemove(task)} className="btn btn-primary btn-sm ms-2">
-                  Remove Task
+                {task.complete ? 
+                  <i classame="bi bi-circle-fill green"></i>
+                 : 
+                  <i classame="bi bi-circle green"></i>
+                }
+              </td>
+              <td>
+                <button
+                  onClick={(e) => toggleTaskComplete(task)}
+                  className="btn btn-primary btn-sm ms-2"
+                  // {task.complete ?
+                  //   <i className="bi bi-toggle-off"></i>
+                  //   :
+                  //   <i className="bi bi-toggle-on"></i>
+                  // }
+                ></button>
+                <button
+                  onClick={(e) => onTaskRemove(task)}
+                  className="btn btn-primary btn-sm ms-2"
+                >
+                  <i className="bi bi-trash"></i>
                 </button>
               </td>
             </tr>

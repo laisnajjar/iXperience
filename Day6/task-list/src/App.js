@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import TaskTable from './components/TaskTable';
 import TaskInput from './components/TaskInput';
-// import './App.css';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 
 export default function App() {
