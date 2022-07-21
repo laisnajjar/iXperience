@@ -1,4 +1,4 @@
-const url = 'https://random-d.uk/api'
+const url = 'api.coincap.io/v2/assets'
 
 
 async function fetchFacts() {
@@ -14,7 +14,7 @@ async function fetchFacts() {
 function printFacts(assets) {
   let html = '<ul>'
   for (let asset of assets) {
-    html += '<li>' + asset.fact + '</li>'
+    html += '<li>' + asset.id + '</li>'
   }
   html += '</ul>'
   document.body.innerHTML = html
@@ -28,6 +28,7 @@ async function fetchAndPrintFacts() {
     console.log(err);
   }
 }
+
 fetchAndPrintFacts()
 
 fetchFacts()
