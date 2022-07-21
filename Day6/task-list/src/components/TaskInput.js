@@ -9,7 +9,7 @@ export default function TaskInput(props) {
 
     //create new task
     const task = new Task(
-      (new Date()).getTime(),
+      null,
       taskName,
       false,
     );
