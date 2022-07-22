@@ -1,55 +1,35 @@
-import React, { useState } from 'react'
-import Input from './components/Input'
-import Table from './components/Table'
-import dishService from './services/dishServices'
+import React, { useState, useEffect } from 'react'
+// import Input from './components/Input'
+// import Table from './components/Table'
+// import dishService from './services/dishServices'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { auth } from './firebase/firebase';
+
+import { onAuthStateChanged } from 'firebase/auth';
+import TablePage from './components/tasks/TablePage'
+import LoginPage from './components/auth/LoginPage'
+import RegisterPage from './components/auth/RegisterPage'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import Navbar from './components/Navbar'
 
 export default function App() {
-  const [dishes, setDishes] = useState([])
-  async function onDishCreated(dish) {
-    try {
-      dish = await dishService.createDish(dish)
-      const newDishes = []
-      for (let d of dishes) {
-        newDishes.push(d)
-        console.log(d)
-      }
-      newDishes.push(dish)
-      setDishes(newDishes)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-  async function onDishRemove(dish) {
-    try {
-      await dishService.deleteDish(dish)
-      const filteredDishes = dishes.filter((d) => {
-        return d.id !== dish.id
-      })
-      setDishes(filteredDishes)
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+  }, []);
   return (
-    <div>
-      <div className="container bg-warning">
-        <div className="card card-body bg-danger bg-opacity-75">
-          <h1 className="text-center" style={{ color: 'white' }}>Grandma's Special Recipes</h1>
-          <img
-            src="https://www.acouplecooks.com/wp-content/uploads/2021/03/Cheese-Tortellini-011-735x919.jpg"
-            className="img-thumbnail float-end w-25 p-3 center"
-            alt=" "
-          />
-          <h4 className="text-center" style={{ color: 'white' }}>the best recipes should be kept for generations,<br></br>let's store these recipes here</h4>
-          <Input onDishCreated={onDishCreated}></Input>
-          <Table dishes={dishes} onDishRemove={onDishRemove}>
-            {' '}
-          </Table>
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+    <Navbar user={user}/>
+      <Routes>
+        <Route path="/" element={<TablePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }

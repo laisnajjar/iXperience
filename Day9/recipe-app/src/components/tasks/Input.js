@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dish } from '../models/dish'
+import { Dish } from '../../models/dish'
 
 export default function Input(props) {
   const [dishName, setDishName] = useState('')
