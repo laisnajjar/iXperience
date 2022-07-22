@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Task } from '../models/task';
+import { Task } from '../../models/task';
 
 export default function TaskInput(props) {
   const [taskName, setTaskName] = useState('')
